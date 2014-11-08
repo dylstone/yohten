@@ -1,0 +1,19 @@
+@main(null) {
+
+    @if(flash.containsKey("error")) {
+
+        <div class="alert-message error">
+            <p>
+                <strong>Oops!</strong> @flash.get("error")
+            </p>
+        </div>
+
+    }
+
+    <div class="alert-message block-message info">
+        <p>
+            <strong>こちらは東京都立美術館のオークションシステムです。</strong> 
+            オークションを参加する前に、先ずお名前を入力して、サインインをしてください。
+        </p>
+    </div>
+}

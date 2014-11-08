@@ -1,0 +1,51 @@
+@(connected: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>東京都立美術館️</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+    </head>
+    <body>
+
+        <div class="topbar">
+            <div class="fill">
+                <div class="container">
+                    <a class="brand" href="@routes.Application.index()">東京都立美術館</a>
+
+                    @if(connected != null) {
+                        <p class="pull-right">
+                            @connected 様がサインインされている　—　
+                            <a href="@routes.Application.index()">サインアウト</a>
+                        </p>
+                    } else {
+                        <form action="@routes.Application.auctionRoom()" class="pull-right">
+                            <input id="username" name="username" class="input-small" type="text" placeholder="お名前">
+                            <button class="btn" type="submit">サインイン</button>
+                        </form>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="content">
+                @content
+            </div>
+
+            <footer>
+                <p>
+                    <a href="http://www.yohten.com">陽天株式会社（Yohten Corporation Limited）</a>
+                </p>
+            </footer>
+
+        </div>
+
+    </body>
+</html>
