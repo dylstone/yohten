@@ -1,0 +1,32 @@
+@(username: String)
+
+@main(username) {
+
+    <div class="page-header">
+        <h1>陽天美術作品オークションへようこそ 
+            <small> @username　様</small></h1>
+    </div>
+
+    <div id="onError" class="alert-message error">
+        <p>
+            <strong>注意事項!</strong> <span></span>
+        </p>
+    </div>
+
+    <div id="onAuction" class="row">
+        <div class="span10" id="main">
+            <div id="messages">
+            </div>
+            <textarea id="bid"></textarea>
+        </div>
+        <div class="span4">
+            <h2>オークション参加者</h2>
+            <ul id="members">
+            </ul>
+        </div>
+    </div>
+
+    <script type="text/javascript" charset="utf-8"
+        src="@routes.Application.auctionRoomJs(username)"></script>
+
+}
